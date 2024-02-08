@@ -1,9 +1,22 @@
-import {Text} from "react-native";
+import {Text, View} from "react-native";
+import {VStack} from "@gluestack-ui/themed";
 
-export const ProfileScreen = () => {
+type ProfileScreenProps = {
+    balance: number
+}
+export const ProfileScreen = (props: ProfileScreenProps) => {
+
+    props.balance = 100;
     return(
-       <Text>
-           My Profile
-       </Text>
+        <View>
+           <Text>
+               My Profile
+           </Text>
+            <VStack>
+                <Text>
+                BALANCE: ${props.balance}
+                </Text>
+            </VStack>
+        </View>
     )
 }

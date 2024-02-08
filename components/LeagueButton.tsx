@@ -4,10 +4,11 @@ import React from "react";
 
 type LeagueButtonProps = {
     league: String;
+    navigation: any
 }
 export const LeagueButton = (props: LeagueButtonProps ) => {
     const onPressFunction = () => {
-
+        props.navigation.navigate()
     }
     return(
             <Pressable onPress={onPressFunction}
