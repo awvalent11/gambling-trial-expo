@@ -19,7 +19,7 @@ export default function App() {
   }
 
   return (
-  <ClerkProvider publishableKey={babel.config.clerkPublishableKey} >
+  <ClerkProvider publishableKey={Constants.expoConfig.extra.clerkPublishableKey} >
       <GluestackUIProvider config={config}>
           <NavigationContainer>
               <Stack.Navigator>

@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from "react-native";
-import {HStack, Pressable} from "@gluestack-ui/themed";
+import {HStack} from "@gluestack-ui/themed";
 import {LeagueButton} from "./components/LeagueButton";
 import React from "react";
 import {StatusBar} from "expo-status-bar";

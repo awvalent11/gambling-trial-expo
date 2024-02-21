@@ -27,7 +27,7 @@ export type Bet = {
 }
 
 const loadProfileData = () => {
-    // axios.get('/users')
+    // axios.get('/profileService')
     //     .then(res => {
     //         console.log(res.data);
     //     });

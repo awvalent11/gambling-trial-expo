@@ -1,0 +1,10 @@
+
+Jjavascript:S1128")Remove this unused import of 'StatusBar'.(õ¬¿²üÿÿÿÿ
+@javascript:S1128"$Remove this unused import of 'Text'.(ìø£Ü
+@javascript:S1128"$Remove this unused import of 'View'.(ìø£Ü
+Gjavascript:S1128"&Remove this unused import of 'HStack'.(ƒ¶âÔøÿÿÿÿ
+Jjavascript:S1128")Remove this unused import of 'Pressable'.(ƒ¶âÔøÿÿÿÿ
+Hjavascript:S1128",Remove this unused import of 'LeagueButton'.(¿•¹ë
+Hjavascript:S1128"%Remove this unused import of 'babel'.(ªËÂÄ8¬ÃàãÜ1
+ajavascript:S1481"@Remove the declaration of the unused 'onPressFunction' variable.(Ç¡Ë÷ıÿÿÿÿ
+^javascript:S1854"=Remove this useless assignment to variable "onPressFunction".(Ç¡Ë÷ıÿÿÿÿ
