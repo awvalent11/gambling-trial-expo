@@ -1,0 +1,72 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as React from "react";
+
+import SignUpScreen from "./clerk-screens/SignUpScreen";
+import SignInScreen from "./clerk-screens/SignInScreen";
+import VerifyCodeScreen from "./clerk-screens/VerifyCodeScreen";
+import MyProfileScreen from "./clerk-screens/MyProfileScreen";
+import LinkingConfiguration from "./auth-screens/LinkingConfiguration";
+import { ClerkLoaded, useUser } from "@clerk/clerk-expo";
+import {ProfileScreen} from "./ProfileScreen";
+import {HomeScreen} from "./HomeScreen";
+
+export type RootStackParamList = {
+    Root: undefined;
+    SignUp: undefined;
+    SignIn: undefined;
+    Profile: undefined;
+    VerifyCode: undefined;
+    Home: undefined;
+};
+
+export default function Navigation() {
+    return (
+        <NavigationContainer linking={LinkingConfiguration}>
+            <RootNavigator />
+        </NavigationContainer>
+    );
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+/**
+ * Read more about the protected routes pattern in React Native
+ *
+ * https://reactnavigation.org/docs/auth-flow
+ */
+const RootNavigator = () => {
+    const { isSignedIn } = useUser();
+
+    return (
+        <ClerkLoaded>
+            <Stack.Navigator>
+                {isSignedIn ? (
+                    <Stack.Screen
+                        name="Home"
+                        component={HomeScreen}
+                        options={{ title: "MyProfile" }}
+                    />
+                ) : (
+                    <>
+                        <Stack.Screen
+                            name="SignUp"
+                            component={SignUpScreen}
+                            options={{ title: "Sign Up" }}
+                        />
+                        <Stack.Screen
+                            name="SignIn"
+                            component={SignInScreen}
+                            options={{ title: "Sign In" }}
+                        />
+                        <Stack.Screen
+                            name="VerifyCode"
+                            component={VerifyCodeScreen}
+                            options={{ title: "Sign Up" }}
+                        />
+                    </>
+                )}
+            </Stack.Navigator>
+        </ClerkLoaded>
+    );
+};
