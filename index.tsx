@@ -18,6 +18,7 @@ export type RootStackParamList = {
     Profile: undefined;
     VerifyCode: undefined;
     Home: undefined;
+    League: undefined;
 };
 
 export default function Navigation() {

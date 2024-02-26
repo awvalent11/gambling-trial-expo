@@ -38,17 +38,24 @@ const loadProfileData = () => {
     return null;
 }
 
+const seedProfile = {
+    'email': 'my.email@gmail.com',
+    'balance': 800,
+    'outstandingBets': [],
+    'pastBets': []
+}
+
 
 export const ProfileScreen = (props: ProfileScreenProps) => {
-    const [profile, setProfile] = useState()
-    useEffect(() => {
-        loadProfileData()
-    }, []);
-    const pastBet: PastBet = {
-        "id": 1,
-        "expirationDate": new dayjs.Dayjs("02/15/2024"),
-        "value": 100,
-        paymentInfo: ["Bank A", "Bank B"]}
+    const [profile, setProfile] = useState<Profile>(seedProfile)
+    // useEffect(() => {
+    //     loadProfileData()
+    // }, []);
+    // const pastBet: PastBet = {
+    //     "id": 1,
+    //     "expirationDate": new dayjs.Dayjs("02/15/2024"),
+    //     "value": 100,
+    //     paymentInfo: ["Bank A", "Bank B"]}
 
     return(
         <View>
@@ -57,12 +64,15 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
            </Text>
             <VStack>
                 <Text>
-                BALANCE: ${props.profile.balance}
+                BALANCE: ${profile.balance}
                 </Text>
                 {
-                 props.profile.outstandingBets.map(bet => {
+                 profile.outstandingBets.map(bet => {
                      return(<ActiveBet bet={bet}/>)
                  })
+                }
+                {
+                    profile.outstandingBets.length > 0 ? profile.outstandingBets.map(bet => <ActiveBet bet={bet}/>) : <Text>No Outstanding Bets</Text>
                 }
                 {/*{*/}
                 {/*     props.profile.pastBets.map(bet => {*/}
