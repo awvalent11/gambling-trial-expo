@@ -23,16 +23,6 @@ H
 app.config.js,d/9/d99a117ec61e32cd49ac70e9e33b5d2fcddc8311
 4
 .env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
-D
-clerk-navigation.tsx,e/8/e887cff6f8f605a154d89c6f9ef37c9adb06e4c5
-M
-auth-screens/SignUpScreen.tsx,e/8/e806b37ef1c8012692dd85c48656ff10f4d7137e
-M
-auth-screens/SignInScreen.tsx,6/1/615d8f6f4498aee7882e6179240e546107861c79
-Q
-!auth-screens/VerifyCodeScreen.tsx,e/b/ebf9014bdc7d2835766c519cb67dc3682916397e
-P
- auth-screens/MyProfileScreen.tsx,0/1/01640a56266b1ff56567259906ec91b8d3e37183
 T
 $auth-screens/LinkingConfiguration.ts,d/6/d6936fcc4766900a5fdb46674040c011beaa5256
 Q
@@ -53,3 +43,5 @@ Q
 !clerk-hooks/useCachedResources.ts,4/d/4d4484acdcb9319b82279ef6832e80561e05498d
 K
 components/LeagueScreen.tsx,d/9/d97d55b818454194bb576d260e07e8ab41415f20
+=
+dummy-data.ts,a/5/a5ef030fe24894fc936956d0627596a1253b65d7

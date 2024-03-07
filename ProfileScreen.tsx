@@ -5,17 +5,19 @@ import dayjs, { Dayjs } from "dayjs";
 import {ActiveBet} from "./components/ActiveBet";
 import {PastBet} from "./components/PastBet";
 import axios from "axios";
+import {outstandingDummyBets, pastdummyData} from "./dummy-data";
 
 
 type ProfileScreenProps = {
     profile: Profile
+    userEmail: string[]
 }
 
 type Profile = {
     email: string;
     balance: number;
     outstandingBets: Bet[]
-    pastBets: Bet[]
+    pastBets: PastBet[]
 }
 
 export type Bet = {
@@ -24,40 +26,43 @@ export type Bet = {
     away: string;
     odds: number;
     expiration: Dayjs;
+    moneyLine?: number;
+    payoff: number
+    position: number
 }
 
-const loadProfileData = () => {
-    // axios.get('/profileService')
-    //     .then(res => {
-    //         console.log(res.data);
-    //     });
-
-    //loadOutstandingBets
-    //loadPastBets
-    //loadWallet
-    return null;
-}
+// const loadProfileData = () => {
+//     loadPastBets();
+//     loadOutstandingBets();
+// }
 
 const seedProfile = {
     'email': 'my.email@gmail.com',
     'balance': 800,
-    'outstandingBets': [],
-    'pastBets': []
+    'outstandingBets': outstandingDummyBets,
+    'pastBets': pastdummyData
 }
+
+// const loadPastBets = ():Bet[] => {
+//     return pastdummyData
+// }
+//
+// const loadOutstandingBets = ():Bet[] => {
+//     return outstandingDummyBets
+// }
 
 
 export const ProfileScreen = (props: ProfileScreenProps) => {
     const [profile, setProfile] = useState<Profile>(seedProfile)
-    // useEffect(() => {
-    //     loadProfileData()
-    // }, []);
-    // const pastBet: PastBet = {
-    //     "id": 1,
-    //     "expirationDate": new dayjs.Dayjs("02/15/2024"),
-    //     "value": 100,
-    //     paymentInfo: ["Bank A", "Bank B"]}
+    const [pastBets, setPastBets] = useState<PastBet[]>(null)
+    const [outstandingBets, setOutstandingBets] = useState<Bet[]>(null)
+    useEffect(() => {
+        // setPastBets(pastdummyData)
+        // setOutstandingBets(outstandingDummyBets)
+    }, [profile]);
 
     return(
+
         <View>
            <Text>
                My Profile
@@ -74,11 +79,10 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
                 {
                     profile.outstandingBets.length > 0 ? profile.outstandingBets.map(bet => <ActiveBet bet={bet}/>) : <Text>No Outstanding Bets</Text>
                 }
-                {/*{*/}
-                {/*     props.profile.pastBets.map(bet => {*/}
-                {/*         return(<PastBet pastBet={pastBet}/>)*/}
-                {/*     })*/}
-                {/*}*/}
+                {
+                    profile.pastBets.length > 0 ? profile.pastBets.map(pastBet => <PastBet pastBet={pastBet}/>) : <Text>No Outstanding Bets</Text>
+
+                }
             </VStack>
         </View>
     )

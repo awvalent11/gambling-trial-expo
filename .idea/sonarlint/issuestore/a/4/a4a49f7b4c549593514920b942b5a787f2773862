@@ -1,0 +1,20 @@
+
+Qjavascript:S1128")Remove this unused import of 'StatusBar'.(õ¬¿²üÿÿÿÿ8®¼à°ß1
+Gjavascript:S1128"$Remove this unused import of 'Text'.(ìø£Ü8®¼à°ß1
+Gjavascript:S1128"$Remove this unused import of 'View'.(ìø£Ü8®¼à°ß1
+Njavascript:S1128"&Remove this unused import of 'HStack'.(ƒ¶âÔøÿÿÿÿ8®¼à°ß1
+Qjavascript:S1128")Remove this unused import of 'Pressable'.(ƒ¶âÔøÿÿÿÿ8®¼à°ß1
+Ojavascript:S1128",Remove this unused import of 'LeagueButton'.(¿•¹ë8®¼à°ß1
+[javascript:S1128"3Remove this unused import of 'NavigationContainer'.(™Õ›Äıÿÿÿÿ8¯¼à°ß1
+]javascript:S1128":Remove this unused import of 'createNativeStackNavigator'.(‚óÄ8¯¼à°ß1
+Mjavascript:S1128	"*Remove this unused import of 'HomeScreen'.(Ãá©Ğ8¯¼à°ß1
+Ujavascript:S1128
+"-Remove this unused import of 'ProfileScreen'.(´¡”ûÿÿÿÿ8¯¼à°ß1
+Kjavascript:S1128"(Remove this unused import of 'SignedIn'.(“©ş§8¯¼à°ß1
+Ljavascript:S1128")Remove this unused import of 'SignedOut'.(“©ş§8¯¼à°ß1
+Jjavascript:S1128"'Remove this unused import of 'useUser'.(“©ş§8¯¼à°ß1
+Gjavascript:S1128"%Remove this unused import of 'clerk'.(—áÑ8¯¼à°ß1
+™javascript:S4822"qConsider using 'await' for the promise inside this 'try' or replace it with 'Promise.prototype.catch(...)' usage.(¡»¢üùÿÿÿÿ8°¼à°ß1
+™javascript:S4822"qConsider using 'await' for the promise inside this 'try' or replace it with 'Promise.prototype.catch(...)' usage.(¡»¢üùÿÿÿÿ8°¼à°ß1
+hjavascript:S1481'"@Remove the declaration of the unused 'onPressFunction' variable.(Ç¡Ë÷ıÿÿÿÿ8°¼à°ß1
+ejavascript:S1854'"=Remove this useless assignment to variable "onPressFunction".(Ç¡Ë÷ıÿÿÿÿ8°¼à°ß1

@@ -17,19 +17,23 @@ export const HomeScreen = ({navigation}) => {
 
 
     return (<>
-            <View style={styles.container}>
-                <Text>Welcome to The House</Text>
-                <HStack padding={'$3'}>
-                    <MyWalletButton league={'My Wallet'} />
-                    <LeagueButton league={'NFL'} navigation={navigation}/>
-                    <LeagueButton league={'The Horses'} navigation={navigation} />
-                </HStack>
-                <StatusBar style="auto" />
-            </View>
-            {/*<Stack.Navigator>*/}
-            {/*    <Stack.Screen name="Profile" component={ProfileScreen} />*/}
-            {/*    <Stack.Screen name="League" component={LeagueScreen} />*/}
-            {/* </Stack.Navigator>*/}
+            {/*<View style={styles.container}>*/}
+            {/*    <Text>Welcome to The House</Text>*/}
+            {/*        <HStack padding={'$3'}>*/}
+            {/*            <Stack.Navigator>*/}
+            {/*                <React.Fragment>*/}
+            {/*                    <MyWalletButton league={'My Wallet'} />*/}
+            {/*                    <LeagueButton league={'NFL'} navigation={navigation}/>*/}
+            {/*                    <LeagueButton league={'The Horses'} navigation={navigation} />*/}
+            {/*                </React.Fragment>*/}
+            {/*            </Stack.Navigator>*/}
+            {/*        </HStack>*/}
+            {/*    <StatusBar style="auto" />*/}
+            {/*</View>*/}
+            <Stack.Navigator>
+                <Stack.Screen name="Profile" component={ProfileScreen} />
+                <Stack.Screen name="League" component={LeagueScreen} />
+             </Stack.Navigator>
     </>
     )
 }

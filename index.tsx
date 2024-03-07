@@ -37,7 +37,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
  * https://reactnavigation.org/docs/auth-flow
  */
 const RootNavigator = () => {
-    const { isSignedIn } = useUser();
+    const { isSignedIn, user } = useUser();
+    //const userEmail = user.emailAddresses;
 
     return (
         <ClerkLoaded>
@@ -46,7 +47,7 @@ const RootNavigator = () => {
                     <Stack.Screen
                         name="Home"
                         component={HomeScreen}
-                        options={{ title: "MyProfile" }}
+                        options={{ title: "My Profile" }}
                     />
                 ) : (
                     <>

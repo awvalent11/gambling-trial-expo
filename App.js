@@ -34,6 +34,7 @@ import Navigation from "./index";
 
 export default function App() {
   const publishableKey = 'pk_test_b2JsaWdpbmctZG9yeS02MS5jbGVyay5hY2NvdW50cy5kZXYk'
+  // Some logic to 'Cache' all Profile data on logic
 
   const onPressFunction = () => {
       console.log("2.5 men season 2 episode 1")

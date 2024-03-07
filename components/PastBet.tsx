@@ -1,5 +1,6 @@
 import {Dayjs} from "dayjs";
 import {Text} from "react-native";
+import {Bet} from "../ProfileScreen";
 
 
 type PastBetProps = {
@@ -7,9 +8,15 @@ type PastBetProps = {
 }
 
 export type PastBet = {
+
     id: number
-    expirationDate: Dayjs
-    value: number
+    home: string
+    away: string
+    odds: number
+    expiration: Dayjs
+    moneyLine?: number
+    position: number
+    payoff: number
     paymentInfo: string[]
 }
 
