@@ -33,8 +33,6 @@ N
 types.ts,6/f/6fc95ef381ef75980cef1d30517e8a8a5f77c23b
 N
 clerk-screens/SignInScreen.tsx,a/0/a0ec6689cd0e154aa043c1fec2aa5eb48f6e81c8
-9
-	index.tsx,7/a/7a8c6d6387443688a029a64ef2f4324edaa490ad
 R
 "clerk-screens/VerifyCodeScreen.tsx,d/d/dd7ed598b6a50da196b1c7798c64cb408d117444
 J
@@ -45,3 +43,7 @@ K
 components/LeagueScreen.tsx,d/9/d97d55b818454194bb576d260e07e8ab41415f20
 =
 dummy-data.ts,a/5/a5ef030fe24894fc936956d0627596a1253b65d7
+8
+index.js,a/7/a77b15c0d64cf6111e025645e562faf8ccabb9d7
+K
+components/ResourceCard.tsx,c/a/ca1a9ea20217b7e3517a959628a9d03865b55409

@@ -25,7 +25,7 @@ const statusColors = {
     },
 }
 
-const ResourceCard = ({
+export const ResourceCard = ({
     bet
 }: ResourceCardProps) => {
 
