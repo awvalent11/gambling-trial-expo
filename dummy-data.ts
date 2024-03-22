@@ -33,7 +33,8 @@ export const outstandingDummyBets: Bet[] = [
         odds: 600,
         expiration: dayjs('2024-10-01'),
         position: 100,
-        payoff: 600
+        payoff: 600,
+        status: false
     }, {
         id: 4,
         home: "SFO",
@@ -42,5 +43,6 @@ export const outstandingDummyBets: Bet[] = [
         odds: +120,
         expiration: dayjs('2024-11-17'),
         position: 100,
-        payoff: 120
+        payoff: 120,
+        status: true
     }]

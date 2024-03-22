@@ -29,6 +29,7 @@ export type Bet = {
     moneyLine?: number;
     payoff: number
     position: number
+    status: boolean //is this game going on or not?
 }
 
 // const loadProfileData = () => {
@@ -65,7 +66,7 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
 
         <View>
            <Text>
-               My Profile
+               {seedProfile.email}
            </Text>
             <VStack>
                 <Text>
