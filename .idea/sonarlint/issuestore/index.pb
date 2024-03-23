@@ -45,3 +45,7 @@ K
 components/LeagueScreen.tsx,d/9/d97d55b818454194bb576d260e07e8ab41415f20
 =
 dummy-data.ts,a/5/a5ef030fe24894fc936956d0627596a1253b65d7
+K
+components/ResourceCard.tsx,c/a/ca1a9ea20217b7e3517a959628a9d03865b55409
+E
+components/FadeIn.tsx,a/4/a4fb51809a2ef35c5bac9c3ddb1a6d07edb8b600
