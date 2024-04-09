@@ -1,0 +1,7 @@
+
+Wpython:S1172"8Remove the unused function parameter "scrape_game_card".(Λ£Υ¶8ϋ¶πυλ1
+Upython:S1172"1Remove the unused function parameter "firestore".(Ζ€ιϋÿÿÿÿ8ϋ¶πυλ1
+wpython:S117"YRename this parameter "BeautifulSoup" to match the regular expression ^[_a-z][a-z0-9_]*$.(·έχ8ϋ¶πυλ1
+Ypython:S2836D"5Add a "break" statement or remove this "else" clause.(³£‰ψÿÿÿÿ8ϋ¶πυλ1
+Bpython:S1255"Remove this commented out code.(§¶αώÿÿÿÿ8ϋ¶πυλ1
+=python:S125J"Remove this commented out code.(¨Ξψ8ϋ¶πυλ1

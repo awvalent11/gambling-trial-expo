@@ -1,11 +1,15 @@
 import {Text, View} from "react-native";
-import {VStack} from "@gluestack-ui/themed";
-import {useEffect, useState} from "react";
+import {Pressable, VStack} from "@gluestack-ui/themed";
+import React, {useEffect, useState} from "react";
 import dayjs, { Dayjs } from "dayjs";
 import {ActiveBet} from "./components/ActiveBet";
 import {PastBet} from "./components/PastBet";
 import axios from "axios";
 import {outstandingDummyBets, pastdummyData} from "./dummy-data";
+import {createNavigationContainerRef, useNavigationContainerRef} from "@react-navigation/native";
+import {LeagueScreen} from "./components/LeagueScreen";
+import {OddsMarketplace} from "./components/OddsMarketplace";
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 type ProfileScreenProps = {
@@ -29,7 +33,7 @@ export type Bet = {
     moneyLine?: number;
     payoff: number
     position: number
-    status: boolean //is this game going on or not?
+    status?: boolean //is this game going on or not?
 }
 
 // const loadProfileData = () => {
@@ -57,10 +61,13 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
     const [profile, setProfile] = useState<Profile>(seedProfile)
     const [pastBets, setPastBets] = useState<PastBet[]>(null)
     const [outstandingBets, setOutstandingBets] = useState<Bet[]>(null)
+    // createNavigationContainerRef()
     useEffect(() => {
         // setPastBets(pastdummyData)
         // setOutstandingBets(outstandingDummyBets)
     }, [profile]);
+
+    const Stack = createStackNavigator();
 
     return(
 
@@ -72,6 +79,16 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
                 <Text>
                 BALANCE: ${profile.balance}
                 </Text>
+                <Pressable onPress={() =>
+                    alert("You're hitting me!")
+                    // usenavigatior.push('OddsMarketplace');
+                }
+                           sx={{borderWidth: '$1',
+                               borderRadius: '$sm',
+                               backgroundColor: '$coolGray300'
+                           }} padding='$10'>
+                    <Text>Odds Marketplace</Text>
+                </Pressable>
                 {
                  profile.outstandingBets.map(bet => {
                      return(<ActiveBet bet={bet}/>)

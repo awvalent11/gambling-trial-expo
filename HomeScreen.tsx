@@ -8,6 +8,10 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {RootStackParamList} from "./index";
 import {ProfileScreen} from "./ProfileScreen";
 import {LeagueScreen} from "./components/LeagueScreen";
+import {OddsMarketplace} from "./components/OddsMarketplace";
+import { getHeaderTitle } from '@react-navigation/elements';
+import {OddsCard} from "./components/OddsCard";
+
 
 
 export const HomeScreen = ({navigation}) => {
@@ -33,6 +37,7 @@ export const HomeScreen = ({navigation}) => {
             <Stack.Navigator>
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="League" component={LeagueScreen} />
+                <Stack.Screen name="OddsMarketplace" component={OddsCard} />
              </Stack.Navigator>
     </>
     )

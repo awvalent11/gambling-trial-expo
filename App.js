@@ -12,6 +12,7 @@ import {ClerkProvider, SignedIn, SignedOut, useUser} from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
 import {clerk} from "@clerk/clerk-expo/dist/singleton";
 import Navigation from "./index";
+import 'react-native-gesture-handler';
 
  const tokenCache = {
       getToken(key) {

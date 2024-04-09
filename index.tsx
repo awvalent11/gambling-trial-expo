@@ -10,6 +10,8 @@ import LinkingConfiguration from "./auth-screens/LinkingConfiguration";
 import { ClerkLoaded, useUser } from "@clerk/clerk-expo";
 import {ProfileScreen} from "./ProfileScreen";
 import {HomeScreen} from "./HomeScreen";
+import {OddsMarketplace} from "./components/OddsMarketplace";
+import {OddsCard} from "./components/OddsCard";
 
 export type RootStackParamList = {
     Root: undefined;
@@ -19,6 +21,7 @@ export type RootStackParamList = {
     VerifyCode: undefined;
     Home: undefined;
     League: undefined;
+    OddsMarketplace: undefined;
 };
 
 export default function Navigation() {
@@ -45,9 +48,9 @@ const RootNavigator = () => {
             <Stack.Navigator>
                 {isSignedIn ? (
                     <Stack.Screen
-                        name="Home"
-                        component={HomeScreen}
-                        options={{ title: "My Profile" }}
+                        name="OddsMarketplace"
+                        component={OddsCard}
+                        options={{ title: "Odds Marketplace" }}
                     />
                 ) : (
                     <>
