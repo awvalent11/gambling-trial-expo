@@ -1,23 +1,37 @@
 import axios from "axios";
-import {VStack} from "@gluestack-ui/themed";
+import {Pressable, VStack} from "@gluestack-ui/themed";
 import {View, Text} from "react-native";
+import {OddsCard} from "./OddsCard";
+import {ActiveBet} from "./ActiveBet";
+import {PastBet} from "./PastBet";
+import React from "react";
 
 type OddsMarketplaceProps = {
     league:String
 }
 
 export const OddsMarketplace = () => {
-    const games = axios.get("http")
+    const games: Number[] = [0, 0, 0, 0];
+    // const games = axios.get("http")
     // games.map(game => return(
     //     <Odds
     // ))
+
     return(
-            <View>
-                <VStack>
-                    <Text>
-                        Odds get rendered here
-                    </Text>
-                </VStack>
-            </View>
+    <View>
+        <Text>
+            Odds Marketplace
+        </Text>
+        <VStack>
+                    {games.map(
+                game => {
+                    return(
+                         <OddsCard/>
+                    )
+                }
+            )}
+        </VStack>
+    </View>
     )
+
 }

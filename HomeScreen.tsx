@@ -37,7 +37,7 @@ export const HomeScreen = ({navigation}) => {
             <Stack.Navigator>
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="League" component={LeagueScreen} />
-                <Stack.Screen name="OddsMarketplace" component={OddsCard} />
+                <Stack.Screen name="OddsMarketplace" component={OddsMarketplace} />
              </Stack.Navigator>
     </>
     )

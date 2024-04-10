@@ -32,8 +32,7 @@ const statusColors = {
     },
 }
 
-export const OddsCard = ({ bet
-                             }: OddsCardProps) => {
+export const OddsCard = () => {
 
     // useEffect(() => {
     //     let mounted = true
@@ -97,6 +96,17 @@ export const OddsCard = ({ bet
                             alignItems='center'
                             marginLeft='auto'
                         >
+                            <Pressable
+                                onPress={() =>
+                                    alert('Toogle me!')
+                            // this bad boy is going to pass some
+                            //        state down to the OddsDisplay component
+                            }
+                            >
+                                <Text>
+                                    Toggle
+                                </Text>
+                            </Pressable>
                         </HStack>
                     </HStack>
                     {dummyBet[0].expiration && (
