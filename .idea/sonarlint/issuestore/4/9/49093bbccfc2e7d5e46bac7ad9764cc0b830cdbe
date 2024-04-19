@@ -1,7 +1,7 @@
 
-Ktypescript:S1128"#Remove this unused import of 'Box'.(´Û¢…üÿÿÿÿ8ÒòÎ¥ì1
-Ltypescript:S1128"$Remove this unused import of 'Icon'.(´Û¢…üÿÿÿÿ8ÒòÎ¥ì1
-Qtypescript:S1128")Remove this unused import of 'useEffect'.(èæ‚şÿÿÿÿ8ÒòÎ¥ì1
-Ptypescript:S1128"(Remove this unused import of 'useState'.(èæ‚şÿÿÿÿ8ÒòÎ¥ì1
-jtypescript:S1533"BReplace this "Number" wrapper object with primitive type "number".(îÓˆşÿÿÿÿ8ÓòÎ¥ì1
-Ftypescript:S1259"Remove this commented out code.(›Ä¸Èúÿÿÿÿ8ÓòÎ¥ì1
+Ktypescript:S1128"#Remove this unused import of 'Box'.(´Û¢…üÿÿÿÿ8Ÿ•øŒï1
+Ltypescript:S1128"$Remove this unused import of 'Icon'.(´Û¢…üÿÿÿÿ8Ÿ•øŒï1
+Qtypescript:S1128")Remove this unused import of 'useEffect'.(èæ‚şÿÿÿÿ8Ÿ•øŒï1
+Ptypescript:S1128"(Remove this unused import of 'useState'.(èæ‚şÿÿÿÿ8Ÿ•øŒï1
+jtypescript:S1533"BReplace this "Number" wrapper object with primitive type "number".(îÓˆşÿÿÿÿ8Ÿ•øŒï1
+Ftypescript:S1259"Remove this commented out code.(›Ä¸Èúÿÿÿÿ8Ÿ•øŒï1

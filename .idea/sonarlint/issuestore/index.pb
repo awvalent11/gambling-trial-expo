@@ -71,3 +71,5 @@ J
 Theme.ts,b/f/bfe6b4da588b0bb33e205068fdcb0b124fd5e6e3
 E
 components/Header.tsx,3/6/36aef25bb01676aa8d3d032efb640f83d1b3a3e9
+o
+?Scrapers/venv/lib/python3.11/site-packages/requests/adapters.py,b/c/bc5669f4a05feb3fe3244b3120b3fe9136773c4b

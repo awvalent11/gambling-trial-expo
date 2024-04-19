@@ -10,6 +10,20 @@ type OddsMarketplaceProps = {
     league:String
 }
 
+export type Game = {
+    id: number
+    home: String
+    away: String
+    odds: Odds[]
+}
+
+export type Odds = {
+    pointsSpread: number
+    overUnder: number
+    moneyLine: number
+    sportsBook: String
+}
+
 export const OddsMarketplace = () => {
     const games: Number[] = [0, 0, 0, 0];
     // const games = axios.get("http")
