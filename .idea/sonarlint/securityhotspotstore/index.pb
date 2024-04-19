@@ -73,3 +73,5 @@ E
 components/Header.tsx,3/6/36aef25bb01676aa8d3d032efb640f83d1b3a3e9
 o
 ?Scrapers/venv/lib/python3.11/site-packages/requests/adapters.py,b/c/bc5669f4a05feb3fe3244b3120b3fe9136773c4b
+E
+components/TabNav.tsx,e/7/e7066d1590a73615ef4ac13349eeaed1fc6bbf9f

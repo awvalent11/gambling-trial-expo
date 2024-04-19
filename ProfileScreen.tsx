@@ -1,5 +1,5 @@
 import {Text, View} from "react-native";
-import {Pressable, VStack} from "@gluestack-ui/themed";
+import {HStack, Pressable, VStack} from "@gluestack-ui/themed";
 import React, {useEffect, useState} from "react";
 import dayjs, { Dayjs } from "dayjs";
 import {ActiveBet} from "./components/ActiveBet";
@@ -79,21 +79,27 @@ export const ProfileScreen = (props: ProfileScreenProps) => {
                 <Text>
                 BALANCE: ${profile.balance}
                 </Text>
-                <Pressable onPress={() =>
-                    alert("You're hitting me!")
-                    // usenavigatior.push('OddsMarketplace');
-                }
+                <HStack
                            sx={{borderWidth: '$1',
                                borderRadius: '$sm',
-                               backgroundColor: '$coolGray300'
+                               backgroundColor: '$coolGray300',
+                               width: '100%'
                            }} padding='$10'>
-                    <Text>Odds Marketplace</Text>
-                </Pressable>
+                    <Text>Open Bets</Text>
+                </HStack>
                 {
                  profile.outstandingBets.map(bet => {
                      return(<ActiveBet bet={bet}/>)
                  })
                 }
+                <HStack
+                    sx={{borderWidth: '$1',
+                        borderRadius: '$sm',
+                        backgroundColor: '$coolGray300',
+                        width: '100%'
+                    }} padding='$10'>
+                    <Text>Past Bets</Text>
+                </HStack>
                 {
                     profile.outstandingBets.length > 0 ? profile.outstandingBets.map(bet => <ActiveBet bet={bet}/>) : <Text>No Outstanding Bets</Text>
                 }

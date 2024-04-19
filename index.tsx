@@ -48,9 +48,9 @@ const RootNavigator = () => {
             <Stack.Navigator>
                 {isSignedIn ? (
                     <Stack.Screen
-                        name="OddsMarketplace"
-                        component={OddsCard}
-                        options={{ title: "Odds Marketplace" }}
+                        name="Home"
+                        component={HomeScreen}
+                        options={{ title: "Home" }}
                     />
                 ) : (
                     <>
