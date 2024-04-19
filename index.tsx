@@ -22,6 +22,7 @@ export type RootStackParamList = {
     Home: undefined;
     League: undefined;
     OddsMarketplace: undefined;
+    RecommendedBets: undefined;
 };
 
 export default function Navigation() {
