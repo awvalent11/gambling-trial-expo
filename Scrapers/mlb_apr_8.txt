@@ -1,1 +1,1 @@
-[<span class="sportsbook-outcome-cell__line">+1.5</span>]
+[]

@@ -77,3 +77,5 @@ E
 components/TabNav.tsx,e/7/e7066d1590a73615ef4ac13349eeaed1fc6bbf9f
 N
 components/RecommendedBets.tsx,3/5/351b0cdbe9eb7eff687efd73e7c7b145384ca5ae
+L
+Scrapers/espn_bet_scraper.py,d/d/dd3d5b0e3dff30bc6e7d4d5b294c0fb807b2d6ae
