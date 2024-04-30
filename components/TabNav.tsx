@@ -13,8 +13,8 @@ const Tab = createMaterialTopTabNavigator();
     return(
         <Tab.Navigator>
             <Tab.Screen name="Profile" component={ProfileScreen} />
-            <Tab.Screen name="OddsMarketplace" component={OddsMarketplace} />
-            <Tab.Screen name="Recommended Bets" component={RecommendedBets} />
+            <Tab.Screen name="Odds Marketplace" component={OddsMarketplace} />
+            {/*<Tab.Screen name="Recommended Bets" component={RecommendedBets} />*/}
         </Tab.Navigator>
     )
 }
