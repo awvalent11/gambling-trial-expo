@@ -1,11 +1,22 @@
+import string
+
 import requests
 import urllib3
+import re
 from bs4 import BeautifulSoup
 
 def scrape_game_card(html_element):
-    game_data = html_element.findAll('img', class_='Image Logo Logo__sm')
-    for img in game_data:
+    team_names = html_element.findAll('img', class_='Image Logo Logo__sm')
+    for img in team_names:
         print(img.get('title', 'No title attribute'))
+
+    odds_table = html_element.findAll('td')
+    print("You're hitting the odds table")
+    print(odds_table)
+    for odds in odds_table:
+        lt = re.findall('-?\d+\.?\d*', string)
+        print(lt)
+
 
 def scrape_espn_bet(target='file',
                url='https://www.espn.com/mlb/lines',
@@ -43,13 +54,6 @@ def scrape_espn_bet(target='file',
 
         # resources = fix_slash_in_resources(updated_resources)
 
-        # Send data to firebase or file
-        # if target == 'firebase':
-        #     for card in all_data:
-        #         firestore_client: google.cloud.firestore.Client = firestore.client()
-        # write to the staging database
-        # resource = fix_slash_in_resource(resource)
-        #        firestore_client.collection("bases").document("cavazos").collection("directory").document(card['title']).set(card)
         if target == 'file':
             # write all_data to a file
             with open('mlb_apr_8.txt', mode='w') as f:
