@@ -1,4 +1,4 @@
-#!/Users/a2274771/Projects/gambling-trial-expo/Scrapers/venv/bin/python3.11
+#!/Users/a2274771/Projects/gambling-trial-expo/Scrapers/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 # Copyright 2024 Google LLC
 #

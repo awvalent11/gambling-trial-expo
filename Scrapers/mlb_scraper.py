@@ -1,10 +1,9 @@
-from firebase_functions import https_fn
 import requests
 import urllib3
 from bs4 import BeautifulSoup
 from espn_bet_scraper import scrape_espn_bet
-from firebase_admin import initialize_app, firestore
 from human_readable import write_pretty, read_data
+from scrape_live_mlb_betting_pros import scrape_betting_pros_mlb_live
 
 def scrape_game_card(html_element):
     game_line_data = {}
@@ -16,11 +15,10 @@ def scrape_game_card(html_element):
 
     return game_line_data
 def scrape_mlb(target='file',
-                   # url='https://sportsbook.draftkings.com/leagues/baseball/mlb',
+                   url='https://sportsbook.draftkings.com/leagues/baseball/mlb',
                    requests=requests,
                    BeautifulSoup=BeautifulSoup,
                    scrape_game_card=scrape_game_card,
-                   firestore=firestore,
                    open=open):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     print('making request...')
@@ -72,6 +70,7 @@ def scrape_mlb(target='file',
 
 if __name__ == '__main__':
     # scrape_mlb()
-    scrape_espn_bet()
+    # scrape_espn_bet()
+    scrape_betting_pros_mlb_live()
     # schools_data = read_data('mlb_apr_8.txt')
     # write_pretty('mlb_apr_8_pretty.txt', schools_data)
