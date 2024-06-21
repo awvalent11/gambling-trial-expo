@@ -46,4 +46,18 @@ def scrape_betting_pros_mlb_live(target='file',
     }
     response = rawOddsApi.json()
     dict.update(response)
-    print(dict["offers"])
+    offers = dict["offers"]
+    for offer in offers:
+        # participants = offer["participants"]
+        # for participant in participants:
+        #     print(participant["id"])
+        selections = offer["selections"]
+        for selection in selections:
+            team = selection["label"]
+            print("Team name:", team)
+            books = selection['books']
+            for book in books:
+                lines = book['lines']
+                for line in lines:
+                    print(line['link'])
+                    print(line['cost'])
