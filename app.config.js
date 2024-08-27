@@ -4,4 +4,7 @@ module.exports = {
     extra: {
         clerkPublishableKey: process.env.CLERK_PUBLISHABLE_KEY,
     },
+    "android": {
+        "package": "com.anonymous.gamblingtrialexpo"
+    }
 };
