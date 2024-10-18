@@ -47,3 +47,38 @@ def scrape_betting_pros_mlb_live(target='file',
     response = rawOddsApi.json()
     dict.update(response)
     print(dict["offers"])
+
+def scrape_draftking_nfl_card(html_element):
+    game_line_data = {}
+
+    #scrape school data for each school 'card'
+    #Extract the desired information if the elements exist
+
+    game_line_data = html_element.findAll('div', class_='sportsbook-table_body')
+
+    return game_line_data
+
+def scrape_draftkings_live_nfl(target='file',
+                                  url='https://sportsbook.draftkings.com/leagues/football/nfl',
+                                  requests=requests,
+                                  BeautifulSoup=BeautifulSoup,
+                                  open=open):
+     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+     print('making request to Draftkings NFL...')
+     #Might need to change this bad boy to Chrome
+     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'}
+     # Send an HTTP GET request to the URL
+     response = requests.get(url, verify=False, headers=headers)
+     print("request made")
+
+     # Check if the request was successful (status code 200)
+      # if response.status_code == 200:
+     #     print("got a 200")
+     print(response.status_code)
+      # Parse the HTML content of the page
+     print(response.content)
+     soup = BeautifulSoup(response.content, 'html.parser')
+     for card in soup.find('div', class_='sportsbook-offer-category-card'):
+        print("You're hitting me 2")
+        data = card
+        print(data)

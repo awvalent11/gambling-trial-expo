@@ -1,6 +1,6 @@
 import string
 
-import requests
+import requ ests
 import urllib3
 import re
 from bs4 import BeautifulSoup
