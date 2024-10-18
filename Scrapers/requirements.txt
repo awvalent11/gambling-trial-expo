@@ -4,4 +4,3 @@ bs4==0.0.1
 firebase-admin==6.2.0
 pytest==7.4.2
 pytest-watch==4.2.0
-firebase_functions~=0.1.0

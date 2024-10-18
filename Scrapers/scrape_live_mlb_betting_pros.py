@@ -48,14 +48,17 @@ def scrape_betting_pros_mlb_live(target='file',
     dict.update(response)
     print(dict["offers"])
 
-def scrape_draftking_nfl_card(html_element):
-    game_line_data = {}
+# def scrape_draftking_nfl_card(BeautifulSoup=BeautifulSoup, html_element):
+#     soup = BeautifulSoup(response.content, 'html.parser')
+#     for team in soup.findAll('th', class_='sportsbook-table__column-row'):
+#         print(team)
 
     #scrape school data for each school 'card'
     #Extract the desired information if the elements exist
 
     game_line_data = html_element.findAll('div', class_='sportsbook-table_body')
 
+    print(game_line_data)
     return game_line_data
 
 def scrape_draftkings_live_nfl(target='file',
@@ -76,9 +79,11 @@ def scrape_draftkings_live_nfl(target='file',
      #     print("got a 200")
      print(response.status_code)
       # Parse the HTML content of the page
-     print(response.content)
      soup = BeautifulSoup(response.content, 'html.parser')
-     for card in soup.find('div', class_='sportsbook-offer-category-card'):
-        print("You're hitting me 2")
-        data = card
-        print(data)
+     # draftkings_page = soup.findAll('div', class_='sportsbook-offer-category-card')
+     for card in soup.find('tbody', class_='sportsbook-table__body'):
+         print("Youre hitting me 2")
+         team = card.findAll("div", class_='event-cell__name-text')
+         spread = card.findAll("span", class_='sportsbook-outcome-cell__line')
+         print(team)
+         print(spread)
