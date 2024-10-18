@@ -1,3 +1,5 @@
+import re
+
 import requests
 import urllib3
 from bs4 import BeautifulSoup
@@ -55,11 +57,11 @@ def scrape_betting_pros_mlb_live(target='file',
 
     #scrape school data for each school 'card'
     #Extract the desired information if the elements exist
-
-    game_line_data = html_element.findAll('div', class_='sportsbook-table_body')
-
-    print(game_line_data)
-    return game_line_data
+    #
+    # game_line_data = html_element.findAll('div', class_='sportsbook-table_body')
+    #
+    # print(game_line_data)
+    # return game_line_data
 
 def scrape_draftkings_live_nfl(target='file',
                                   url='https://sportsbook.draftkings.com/leagues/football/nfl',
@@ -84,6 +86,9 @@ def scrape_draftkings_live_nfl(target='file',
      for card in soup.find('tbody', class_='sportsbook-table__body'):
          print("Youre hitting me 2")
          team = card.findAll("div", class_='event-cell__name-text')
-         spread = card.findAll("span", class_='sportsbook-outcome-cell__line')
          print(team)
+         # match = re.match(".*?>(.*)<.*")
+         # print(match)
+         spread = card.findAll("span", class_='sportsbook-outcome-cell__line')
+
          print(spread)
