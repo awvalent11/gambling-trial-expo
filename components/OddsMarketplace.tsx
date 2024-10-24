@@ -4,7 +4,7 @@ import {View, Text} from "react-native";
 import {OddsCard} from "./OddsCard";
 import {ActiveBet} from "./ActiveBet";
 import {PastBet} from "./PastBet";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 type OddsMarketplaceProps = {
     league:String
@@ -25,7 +25,13 @@ export type Odds = {
 }
 
 export const OddsMarketplace = () => {
-    const games: Number[] = [0, 0, 0, 0];
+    const [games, setGames] = useState([]);
+    useEffect(() => {
+        axios.get("http://k8s-game2048-nflingre-04613a5480-994585251.us-east-2.elb.amazonaws.com/gambling-api/nfl-week-games")
+            .then((res: any) => setGames(res.data))
+    })
+
+
     // const games = axios.get("http")
     // games.map(game => return(
     //     <Odds
@@ -40,7 +46,7 @@ export const OddsMarketplace = () => {
                     {games.map(
                 game => {
                     return(
-                         <OddsCard/>
+                         <OddsCard game={game}/>
                     )
                 }
             )}

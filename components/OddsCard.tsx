@@ -32,7 +32,7 @@ const statusColors = {
     },
 }
 
-export const OddsCard = () => {
+export const OddsCard = (game) => {
 
     // useEffect(() => {
     //     let mounted = true
@@ -89,7 +89,7 @@ export const OddsCard = () => {
                             fontSize={18}
                             maxWidth='80%'
                         >
-                            {dummyBet[0].away} @ {dummyBet[0].home}
+                            {game.away} @ {game.home}
                         </Text>
                         <HStack
                             space='sm'
