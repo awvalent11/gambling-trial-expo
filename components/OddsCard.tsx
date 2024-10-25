@@ -89,7 +89,7 @@ export const OddsCard = (game) => {
                             fontSize={18}
                             maxWidth='80%'
                         >
-                            {game.away} @ {game.home}
+                            {game.AwayTeamName} @ {game.HomeTeamName}
                         </Text>
                         <HStack
                             space='sm'
