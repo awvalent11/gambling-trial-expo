@@ -2,9 +2,14 @@ import {Box, HStack, Text, VStack} from "@gluestack-ui/themed";
 import {Colors} from "../Theme";
 import dayjs from "dayjs";
 import {green} from "react-native-reanimated/lib/typescript/reanimated2/Colors";
+import {odd} from "../dummy-data";
 
 
-export const OddsDisplay = () => {
+type OddsDisplayProps = {
+    odd: odd
+    oddsFormat: string
+}
+export const OddsDisplay = (props: OddsDisplayProps) => {
     const bet = {
         id: 3,
         home: "NY",
@@ -22,7 +27,7 @@ export const OddsDisplay = () => {
                 fontSize={12}
                 color={Colors.zinc600}
             >
-                Book Name
+                {props.odd.sportsBook}
             </Text>
             <HStack
                 alignItems='center'
@@ -30,7 +35,7 @@ export const OddsDisplay = () => {
             >
                 <Box
                     justifyContent='center'
-                    paddingHorizontal={0}
+                    paddingHorizontal={15}
                     paddingVertical={1.5}
                     borderRadius={8}
                     borderWidth={1}
@@ -48,7 +53,7 @@ export const OddsDisplay = () => {
                         }
                         fontSize={12}
                     >
-                        Odds Go Here
+                        {props.odd.pointsSpread}
                     </Text>
                 </Box>
             </HStack>

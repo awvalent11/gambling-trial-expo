@@ -4,11 +4,10 @@ import React, { memo, useEffect, useState } from 'react'
 import {FadeIn} from "./FadeIn";
 import {Bet} from "../ProfileScreen";
 import {OddsDisplay} from "./OddsDisplay";
-import {outstandingDummyBets} from "../dummy-data";
+import {exampleGameType, mockNFLDataWeek8, outstandingDummyBets} from "../dummy-data";
 
 type OddsCardProps = {
-    bet?: Bet
-    oddsProp: OddsProp
+    game: exampleGameType
 }
 
 type OddsProp = {
@@ -32,8 +31,14 @@ const statusColors = {
     },
 }
 
-export const OddsCard = (game) => {
+// const toggleOddsFormat = () => {
+//     switch (oddsFormat):
+//         case "pointsSpread": setOddsFormat("overUnder")
+// }
 
+
+export const OddsCard = (props: OddsCardProps) => {
+    const [oddsFormat, setOddsFormat] = useState("pointsSpread")
     // useEffect(() => {
     //     let mounted = true
     //
@@ -89,7 +94,7 @@ export const OddsCard = (game) => {
                             fontSize={18}
                             maxWidth='80%'
                         >
-                            {game.AwayTeamName} @ {game.HomeTeamName}
+                            {props.game.away} @ {props.game.home}
                         </Text>
                         <HStack
                             space='sm'
@@ -109,7 +114,7 @@ export const OddsCard = (game) => {
                             </Pressable>
                         </HStack>
                     </HStack>
-                    {dummyBet[0].expiration && (
+                    {props.game.startTime && (
                         <HStack space='md' alignItems='center'>
                             {/*<Clock8 size='20' color={Colors.zinc600} />*/}
                             <Text
@@ -119,7 +124,7 @@ export const OddsCard = (game) => {
                                 lineHeight={18}
                                 color={Colors.zinc800}
                             >
-                                Game Day: {dummyBet[0].expiration.format("LLLL")}
+                                Game Day: {props.game.startTime.format("LLLL")}
                             </Text>
                         </HStack>
                     )}
@@ -129,10 +134,11 @@ export const OddsCard = (game) => {
                             alignItems='flex-start'
                             padding={'$px'}
                         >
-                            <OddsDisplay/>
-                            <OddsDisplay/>
-                            <OddsDisplay/>
-                            <OddsDisplay/>
+                            {props.game.odds.map( odd => {
+                                return(
+                            <OddsDisplay odd={odd} oddsFormat={oddsFormat}/>
+                                )}
+                            )}
                         </HStack>
                     </HStack>
                 </VStack>
