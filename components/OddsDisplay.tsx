@@ -20,6 +20,21 @@ export const OddsDisplay = (props: OddsDisplayProps) => {
         payoff: 600,
     }
 
+    const parseOddsFormat = (oddsFormat: string)=> {
+        switch(oddsFormat){
+            case "pointsSpread":
+                return props.odd.pointsSpread
+            case "overUnder":
+                return props.odd.overUnder
+            case "homeMoneyLine":
+                return props.odd.homeMoneyLine
+            case "awayMoneyLine":
+                return props.odd.awayMoneyLine
+            default:
+                return props.odd.pointsSpread
+        }
+    }
+
     return(
         <VStack space='xs'>
             <Text
@@ -53,7 +68,8 @@ export const OddsDisplay = (props: OddsDisplayProps) => {
                         }
                         fontSize={12}
                     >
-                        {props.odd.pointsSpread}
+                        {parseOddsFormat(props.oddsFormat)}
+                        {/*{props.odd.pointsSpread}*/}
                     </Text>
                 </Box>
             </HStack>

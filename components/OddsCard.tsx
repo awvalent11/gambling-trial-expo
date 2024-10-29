@@ -1,10 +1,10 @@
-import { Box, HStack, Icon, Pressable, Text, VStack } from '@gluestack-ui/themed'
+import {Box, HStack, Icon, Pressable, ScrollView, set, Text, VStack} from '@gluestack-ui/themed'
 import { Colors } from '../Theme'
 import React, { memo, useEffect, useState } from 'react'
 import {FadeIn} from "./FadeIn";
 import {Bet} from "../ProfileScreen";
 import {OddsDisplay} from "./OddsDisplay";
-import {exampleGameType, mockNFLDataWeek8, outstandingDummyBets} from "../dummy-data";
+import {exampleGameType, mockNFLDataWeek9, outstandingDummyBets} from "../dummy-data";
 
 type OddsCardProps = {
     game: exampleGameType
@@ -31,38 +31,42 @@ const statusColors = {
     },
 }
 
-// const toggleOddsFormat = () => {
-//     switch (oddsFormat):
-//         case "pointsSpread": setOddsFormat("overUnder")
-// }
 
 
 export const OddsCard = (props: OddsCardProps) => {
     const [oddsFormat, setOddsFormat] = useState("pointsSpread")
-    // useEffect(() => {
-    //     let mounted = true
-    //
-    //     userBaseRepository.getUserBase().then((base) => {
-    //         if (mounted) {
-    //             subscribeToUpdateCount(base, resource, setUpdateCount).then(
-    //                 (unsubFunction) => {
-    //                     setUnsubscribe(() => unsubFunction)
-    //                 }
-    //             )
-    //         }
-    //     })
-    //
-    //     // unsubscribe on dismount
-    //     return () => {
-    //         if (unsubscribe) unsubscribe()
-    //         mounted = false
-    //     }
-    // }, [])
 
-    // async function toggleIsFavorite() {
-    //     await setIsResourceFavorite(bet, !isFavorite)
-    // }
+    const toggleOddsFormat = (oddsFormat: string) => {
+        switch(oddsFormat) {
+            case "pointsSpread":
+                setOddsFormat("overUnder")
+                break;
+            case "overUnder":
+                setOddsFormat("homeMoneyLine")
+                break;
+            case "homeMoneyLine":
+                setOddsFormat("awayMoneyLine")
+                break;
+            default:
+            setOddsFormat("pointsSpread")
+        }
+    }
 
+
+    const displayOddsFormat =() => {
+        switch(oddsFormat){
+            case "pointsSpread":
+                return props.game.home+" Spread"
+            case "overUnder":
+                return "Over-Under"
+            case "homeMoneyLine":
+                return props.game.home+" Moneyline"
+            case "awayMoneyLine":
+                return props.game.away +" Moneyline"
+            default:
+                return props.game.home+" Spread"
+        }
+    }
     const dummyBet = outstandingDummyBets;
 
     return (
@@ -96,23 +100,25 @@ export const OddsCard = (props: OddsCardProps) => {
                         >
                             {props.game.away} @ {props.game.home}
                         </Text>
-                        <HStack
+                        <VStack
                             space='sm'
                             alignItems='center'
-                            marginLeft='auto'
+                            alignContent='center'
                         >
                             <Pressable
-                                onPress={() =>
-                                    alert('Toogle me!')
-                            // this bad boy is going to pass some
-                            //        state down to the OddsDisplay component
+                                onPress={() => {
+                                    toggleOddsFormat(oddsFormat)
+                                }
                             }
                             >
+                                <Text>
+                                    {displayOddsFormat()}
+                                </Text>
                                 <Text>
                                     Toggle
                                 </Text>
                             </Pressable>
-                        </HStack>
+                        </VStack>
                     </HStack>
                     {props.game.startTime && (
                         <HStack space='md' alignItems='center'>
@@ -128,19 +134,19 @@ export const OddsCard = (props: OddsCardProps) => {
                             </Text>
                         </HStack>
                     )}
-                    <HStack justifyContent='space-between'>
-                        <HStack
-                            gap={14}
-                            alignItems='flex-start'
-                            padding={'$px'}
-                        >
-                            {props.game.odds.map( odd => {
-                                return(
-                            <OddsDisplay odd={odd} oddsFormat={oddsFormat}/>
+                        <HStack justifyContent='space-between'>
+                            <HStack
+                                gap={14}
+                                alignItems='flex-start'
+                                padding={'$px'}
+                            >
+                                {props.game.odds.map( odd => {
+                                    return(
+                                <OddsDisplay odd={odd} oddsFormat={oddsFormat}/>
+                                    )}
                                 )}
-                            )}
+                            </HStack>
                         </HStack>
-                    </HStack>
                 </VStack>
             </Pressable>
         </FadeIn>
