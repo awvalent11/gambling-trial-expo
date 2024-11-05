@@ -134,19 +134,25 @@ export const OddsCard = (props: OddsCardProps) => {
                             </Text>
                         </HStack>
                     )}
+                    <View>
                         <HStack justifyContent='space-between'>
-                            <HStack
-                                gap={14}
-                                alignItems='flex-start'
-                                padding={'$px'}
+                            <ScrollView
+                            horizontal={true}
                             >
-                                {props.game.odds.map( odd => {
-                                    return(
-                                <OddsDisplay odd={odd} oddsFormat={oddsFormat}/>
+                                <HStack
+                                    gap={14}
+                                    alignItems='flex-start'
+                                    padding={'$px'}
+                                >
+                                    {props.game.odds.map( odd => {
+                                        return(
+                                    <OddsDisplay odd={odd} oddsFormat={oddsFormat}/>
+                                        )}
                                     )}
-                                )}
-                            </HStack>
+                                </HStack>
+                            </ScrollView>
                         </HStack>
+                    </View>
                 </VStack>
             </Pressable>
         </FadeIn>
