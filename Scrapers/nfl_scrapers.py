@@ -1,7 +1,16 @@
+import time
+
 import requests
 import urllib3
 from bs4 import BeautifulSoup
-from Scrapers.selenium_test import driver
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+# driver = webdriver.Chrome('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
+
+
 
 
 def scrape_draftkings_live_nfl(target='file',
@@ -37,6 +46,7 @@ def scrape_draftkings_live_nfl(target='file',
 def scrape_espn_live_nfl(target='file',
                                url='https://espnbet.com/sport/football/organization/united-states/competition/nfl',
                                requests=requests,
+                               webdriver = webdriver,
                                BeautifulSoup=BeautifulSoup,
                                ):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -44,20 +54,26 @@ def scrape_espn_live_nfl(target='file',
     #Might need to change this bad boy to Chrome
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'}
     # Send an HTTP GET request to the URL
-    response = requests.get(url, verify=False, headers=headers)
-    print("request made")
+    driver = webdriver.Chrome()
+    page = driver.get('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
+    time.sleep(45)
+    # element = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[class='space-y-4']")))
+    # element = driver.find_element(By.CLASS_NAME, 'space-y-4')
+    print(page)
+    # response = requests.get(url, verify=False, headers=headers)
+    # print("request made")
 
     # Check if the request was successful (status code 200)
     # if response.status_code == 200:
     #     print("got a 200")
-    print(response.status_code)
+    # print(response.status_code)
     # Parse the HTML content of the page
-    soup = BeautifulSoup(response.content, 'html.parser')
+    # soup = BeautifulSoup(response.content, 'html.parser')
     # for card in soup.find('div', class_='space-y-4'):
-    print(response.content)
-    body = soup.find("section", data_testid_="marketplace-shelf-")
-    body = driver.find_element(by="div", value="marketplace-shelf-")
-    print(body)
+    # print(response.content)
+    # body = soup.find("section", data_testid_="marketplace-shelf-")
+    # body = driver.find_element(by="div", value="marketplace-shelf-")
+    # print(body)
     # print("Youre hitting me 2")
     # teams = soup.findAll("div", class_='flex p-0')
     # print(teams)
@@ -70,7 +86,7 @@ def scrape_fanduel_live_nfl(target='file',
                          url="https://sportsbook.fanduel.com/",
                          requests=requests,
                          BeautifulSoup=BeautifulSoup,
-                         driver=driver
+                         webdriver=webdriver
                          ):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     print('making request to Fanduel Bet NFL...')
@@ -79,6 +95,14 @@ def scrape_fanduel_live_nfl(target='file',
     # Send an HTTP GET request to the URL
     response = requests.get(url, verify=False, headers=headers)
     print("request made")
+
+    driver = webdriver.Chrome()
+    page = driver.get('https://sportsbook.fanduel.com/', headers=headers)
+    time.sleep(20)
+    # element = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[class='space-y-4']")))
+    # element = driver.find_element(By.CLASS_NAME, 'space-y-4')
+    print(page)
+
 
     # Check if the request was successful (status code 200)
     # if response.status_code == 200:

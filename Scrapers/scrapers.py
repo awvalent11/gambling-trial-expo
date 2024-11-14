@@ -61,5 +61,5 @@ if __name__ == '__main__':
     # write_pretty('mlb_apr_8_pretty.txt', schools_data)
     # scrape_draftkings_live_nfl()
     # scrape_espn_live_nfl()
-    # scrape_fanduel_live_nfl()
+    scrape_fanduel_live_nfl()
     # scrape_caesers_live_nfl()
