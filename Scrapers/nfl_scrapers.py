@@ -3,10 +3,10 @@ import time
 import requests
 import urllib3
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+# from selenium import webdriver
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.common.by import By
 
 # driver = webdriver.Chrome('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
 
@@ -28,25 +28,22 @@ def scrape_draftkings_live_nfl(target='file',
 
     # Check if the request was successful (status code 200)
     # if response.status_code == 200:
-    #     print("got a 200")
     print(response.status_code)
     # Parse the HTML content of the page
     soup = BeautifulSoup(response.content, 'html.parser')
-    # draftkings_page = soup.findAll('div', class_='sportsbook-offer-category-card')
-    for card in soup.find('tbody', class_='sportsbook-table__body'):
-        print("Youre hitting me 2")
-        team = card.findAll("div", class_='event-cell__name-text')
-        print(team)
-        # match = re.match(".*?>(.*)<.*")
-        # print(match)
-        spread = card.findAll("span", class_='sportsbook-outcome-cell__line')
+    print("Youre hitting me! 1")
+    # team = soup.findAll('div', class_="event-cell__team-info")
+    # print("Team info")
+    # print(team)
+    odds = soup.findAll('td', class_="sportsbook-table__column-row")
+    print("Odds Info")
+    print(odds)
 
-        print(spread)
 
 def scrape_espn_live_nfl(target='file',
                                url='https://espnbet.com/sport/football/organization/united-states/competition/nfl',
                                requests=requests,
-                               webdriver = webdriver,
+                               # webdriver = webdriver,
                                BeautifulSoup=BeautifulSoup,
                                ):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -54,12 +51,12 @@ def scrape_espn_live_nfl(target='file',
     #Might need to change this bad boy to Chrome
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'}
     # Send an HTTP GET request to the URL
-    driver = webdriver.Chrome()
-    page = driver.get('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
-    time.sleep(45)
+    # driver = webdriver.Chrome()
+    # page = driver.get('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
+    # time.sleep(45)
     # element = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[class='space-y-4']")))
     # element = driver.find_element(By.CLASS_NAME, 'space-y-4')
-    print(page)
+    # print(page)
     # response = requests.get(url, verify=False, headers=headers)
     # print("request made")
 
@@ -86,7 +83,7 @@ def scrape_fanduel_live_nfl(target='file',
                          url="https://sportsbook.fanduel.com/",
                          requests=requests,
                          BeautifulSoup=BeautifulSoup,
-                         webdriver=webdriver
+                         # webdriver=webdriver
                          ):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     print('making request to Fanduel Bet NFL...')
@@ -96,12 +93,12 @@ def scrape_fanduel_live_nfl(target='file',
     response = requests.get(url, verify=False, headers=headers)
     print("request made")
 
-    driver = webdriver.Chrome()
-    page = driver.get('https://sportsbook.fanduel.com/', headers=headers)
+    # driver = webdriver.Chrome()
+    # page = driver.get('https://sportsbook.fanduel.com/', headers=headers)
     time.sleep(20)
     # element = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[class='space-y-4']")))
     # element = driver.find_element(By.CLASS_NAME, 'space-y-4')
-    print(page)
+    # print(page)
 
 
     # Check if the request was successful (status code 200)
