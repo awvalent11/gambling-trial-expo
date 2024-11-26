@@ -20,6 +20,9 @@ def extracts_odds_from_html(text):
     matches = re.findall(pattern, text)
     return matches
 
+def slices_espn_bet(odds):
+    return odds.split()
+
 def scrape_draftkings_live_nfl(target='file',
                                url='https://sportsbook.draftkings.com/leagues/football/nfl',
                                requests=requests,
@@ -66,14 +69,14 @@ def scrape_espn_live_nfl(target='file',
     print('making request to ESPN/nfl/odds...')
     #Might need to change this bad boy to Chrome
     # !window.crossOriginIsolated && !navigator.serviceWorker)
-
     chrome_options = Options()
     chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1')
     driver = webdriver.Chrome()
     driver.get(url)
     time.sleep(5)
     bet_content = driver.find_element(By.CLASS_NAME, "space-y-4").text
-    print(bet_content)
+    espn_odds_array = slices_espn_bet(bet_content)
+    print(espn_odds_array)
 
 
 
