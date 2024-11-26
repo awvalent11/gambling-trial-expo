@@ -14,14 +14,33 @@ from selenium.webdriver.chrome.options import Options
 
 # driver = webdriver.Chrome('https://espnbet.com/sport/football/organization/united-states/competition/nfl')
 
-
+nfl_team_abbreviations = ["PHI", "DEN", "LV", "GB", "CAR", "NO", "KC", "MIN"
+                          "DAL", "BUF", "CHI", "CIN", "LV", "SF", "ARI", "PIT", "LA Chargers"
+                          "TB", "NE", "IND", "WSH", "TEN", "JAX", "HOU", "NY Giants", "SEA"
+                          "NY Jets", "NYG", "DET", "MIA", "CLE", "NO", "LA Rams"]
 def extracts_odds_from_html(text):
     pattern = r">(.*?)<"
     matches = re.findall(pattern, text)
     return matches
 
-def slices_espn_bet(odds):
-    return odds.split()
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+def transforms_espn_bets_date(espn_array):
+    i = 0
+    while i < len(espn_array):
+        if espn_array[i] in months:
+            espn_array.pop(i)
+            espn_array.pop(i)
+    else:
+        i += 1
+
+def trans_espn_bets_date(espn_array):
+    new_list = []
+    i = 0
+    for item in months:
+        if espn_array[item] in months:
+            espn_array.pop(item)
+            espn_array.pop(item)
+    return espn_array
 
 def scrape_draftkings_live_nfl(target='file',
                                url='https://sportsbook.draftkings.com/leagues/football/nfl',
@@ -69,14 +88,37 @@ def scrape_espn_live_nfl(target='file',
     print('making request to ESPN/nfl/odds...')
     #Might need to change this bad boy to Chrome
     # !window.crossOriginIsolated && !navigator.serviceWorker)
+    nfl_teams_array = []
     chrome_options = Options()
     chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1')
     driver = webdriver.Chrome()
     driver.get(url)
-    time.sleep(5)
-    bet_content = driver.find_element(By.CLASS_NAME, "space-y-4").text
-    espn_odds_array = slices_espn_bet(bet_content)
+    time.sleep(2)
+    bet_content = driver.find_element(By.ID, "MarketplaceShelf:6cf35d0d-145f-4803-9f4b-9cec4427ebfb").text
+    print("Raw Bet Content:")
+    print(bet_content)
+    espn_odds_array = bet_content.split()
+    # print("Odds as Array")
     print(espn_odds_array)
+    for element in espn_odds_array:
+        if ":" in element:
+            espn_odds_array.remove(element)
+        if "-" in element:
+            espn_odds_array.remove(element)
+    print("ESPN Odds Array cleaned for time:")
+    print(espn_odds_array)
+    # print("Cleaning for Date:")
+    # espn_odds_array = transforms_espn_bets_date(espn_odds_array)
+    print(espn_odds_array)
+    for element in espn_odds_array:
+        if nfl_team_abbreviations.__contains__(element) or re.match(r"[-+]?\d{2,3}", element):
+            nfl_teams_array.append(element)
+    print("Final Array")
+    print(nfl_teams_array)
+
+
+    #You need a test condition for if this function does not find space-y-4, it shouldn't send any content and should retry call it 10 seconds later
+
 
 
 
