@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 import time
 from selenium import webdriver
 
-from Scrapers.nfl_scrapers import scrape_caesers_live_nfl
-from espn_bet_scraper import scrape_espn_bet
-from human_readable import write_pretty, read_data
-from scrape_live_mlb_betting_pros import scrape_betting_pros_mlb_live
+# from Scrapers.nfl_scrapers import scrape_caesers_live_nfl
+# from espn_bet_scraper import scrape_espn_bet
+# from human_readable import write_pretty, read_data
+# from scrape_live_mlb_betting_pros import scrape_betting_pros_mlb_live
 from nfl_scrapers import scrape_espn_live_nfl, scrape_fanduel_live_nfl, scrape_draftkings_live_nfl
 
 def scrape_game_card(html_element):
@@ -60,6 +60,6 @@ if __name__ == '__main__':
     # schools_data = read_data('mlb_apr_8.txt')
     # write_pretty('mlb_apr_8_pretty.txt', schools_data)
     # scrape_draftkings_live_nfl()
-    # scrape_espn_live_nfl()
-    scrape_fanduel_live_nfl()
+    scrape_espn_live_nfl()
+    # scrape_fanduel_live_nfl()
     # scrape_caesers_live_nfl()
