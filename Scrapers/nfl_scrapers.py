@@ -74,21 +74,6 @@ def scrape_fanduel_live_nfl(target='file',
                             # webdriver = webdriver,
                             BeautifulSoup=BeautifulSoup,
                             ):
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    # print('making request to fanduel/nfl...')
-    # #Might need to change this bad boy to Chrome
-    # # !window.crossOriginIsolated && !navigator.serviceWorker)
-    #
-    # chrome_options = Options()
-    # chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1')
-    # driver = webdriver.Chrome()
-    # # driver.get(url)
-    # time.sleep(15)
-    # # bet_content = driver.find_element(By.XPATH, "html/body/div[1]/div/div/div/div[1]/main/div/div[1]/div/div[2]/div[3]/ul")
-    # print("Raw Bet Content:")
-    # print(driver.get(url))
-
-    print('making request to Fanduel NFL...')
     headers = {
         'accept': 'application/json',
         'accept-encoding': 'gzip, deflate, br, zstd',
@@ -108,12 +93,20 @@ def scrape_fanduel_live_nfl(target='file',
         'x-application': 'FhMFpcPWXMeyZxOx',
         'x-px-context': '_px3=ebf2d53716050a4ac665a0bac31acd2568c7725cf2ec3cd42214f6958fb1db88:T9En3eak4Rb/PnCISMANw0M1vBjJiOAjDqO9krfQGtXvEDIm4eeI1Q8WJ97SGNZUAA1XUWafbZAeOe4P6CtD1A==:1000:n3F7xWm0mAeSziiL7c/TXLQvqCK4Q4tGww7ykWelRFc7jLMJnQZys/BXbO7l0lPSaT0oUqVrjK4aUX57CuE/naNAeTC3DI66OdZ9z/N2P5/ctgowckWXOUyu/DYnR8x1dXhUwTkPfpr9mws500/f+i7TIF0wDZKGg1e0U1/p3w2B6CdaPzRLksFswKzIGbeymmfAUSfasnhmHsxHiXKygw8Q2T3qLi3q1t0DP0OoN6c=;_pxvid=9e8264fa-b0c6-11ef-95d4-4a4e417a337d;pxcts=5f2bab73-bc9a-11ef-9221-639394f0781c;'
         }
-    response = requests.get(url, verify=False, headers=headers)
-    print("request made")
-    print(response.status_code)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    print("Youre hitting me! 1")
-    print(soup.text)
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    print('making request to fanduel/nfl...')
+    # Might need to change this bad boy to Chrome
+    # !window.crossOriginIsolated && !navigator.serviceWorker)
+
+    chrome_options = Options()
+    chrome_options.add_argument('--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1')
+    driver = webdriver.Chrome()
+    driver.get(url)
+    time.sleep(15)
+    bet_content = driver.find_element(By.XPATH, "html/body/div[1]/div/div/div/div[1]/main/div/div[1]/div/div[2]/div[3]/ul").text
+    print("Raw Bet Content:")
+    print(bet_content)
+
 
     # ***** ///////////////////////////////////////////////// *****************************
 #     target='file',
@@ -260,3 +253,20 @@ def scrape_bettingpros(url='https://www.bettingpros.com/nfl/odds/spread/',
     print("Raw Bet Content:")
     print(content)
 
+
+def scrape_vegas_insider_live_nfl(target='file',
+                               url='https://www.vegasinsider.com/nfl/odds/las-vegas/',
+                               requests=requests,
+                               BeautifulSoup=BeautifulSoup,
+                               open=open):
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    print('making request to Vegas Insider NFL...')
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'}
+    response = requests.get(url, verify=False, headers=headers)
+    print("request made")
+    print(response.status_code)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    # teams = soup.findAll('div', class_= 'team-plate')
+    # odds = soup.findAll('td', class_= 'team-odds')
+    odds = soup.get_text()
+    print(odds.split())
