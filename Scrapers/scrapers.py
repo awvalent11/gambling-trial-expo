@@ -9,7 +9,8 @@ from selenium import webdriver
 # from human_readable import write_pretty, read_data
 # from scrape_live_mlb_betting_pros import scrape_betting_pros_mlb_live
 from nfl_scrapers import scrape_draftkings_live_nfl, scrape_fanduel_live_nfl, scrape_vegas_insider_live_nfl
-from espn_nfl_scrapers import scrape_espn_live_nfl
+# from espn_nfl_scrapers import scrape_espn_live_nfl
+from mlb_scrapers import scrape_vegas_insider_mlb
 # from caesars_scrapy import CaesarsSpider
 
 def scrape_game_card(html_element):
@@ -69,4 +70,5 @@ if __name__ == '__main__':
     # scrape_bet365()
     # caesar_parser = CaesarsSpider()
     # caesar_parser.parse()
-    scrape_vegas_insider_live_nfl()
+    # scrape_vegas_insider_live_nfl()
+    scrape_vegas_insider_mlb()
